@@ -1,27 +1,28 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+h1 {
+  font-size: 19px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+img {
+  width: 100%;
+  height: 150px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.content-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 
-  color: #8c8c8c;
+  div {
+    display: flex;
+    flex-direction: column;
 
-  margin: 0;
-}
+    label {
+      font-size: 12px;
+      margin: 0 5px;
 
-#container a {
-  text-decoration: none;
+      &:nth-child(2) {
+        color: blue;
+      }
+    }
+  }
 }

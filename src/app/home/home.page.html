@@ -1,20 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-title>
-      Blank
+      CatBeerds
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let item of auxArrayCat">
+          <ion-card>
+            <ion-card-content>
+              <h1>{{ item.name }}</h1>
+              <img src="https://cdn2.thecatapi.com/images/{{ item.reference_image_id }}.jpg" alt="" (error)="errorImeg($event)">
+              <div class="content-flex">
+                <div>
+                  <label for="">Pais de origen</label>
+                  <label for="">{{ item.origin }}</label>
+                </div>
+                <div>
+                  <label for="">Intenligencia</label>
+                  <label for="">{{ item.intelligence }}</label>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
